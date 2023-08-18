@@ -1,0 +1,78 @@
+.home{
+    height: 100vh;
+    padding: 0 6vw;
+    width: 100vw;
+    padding-top: 12vh;
+    background-color: rgba(0, 0, 0, 0.74);
+    // filter: blur(2px);
+}
+
+.home__video{
+    position: absolute;
+  right: 0;
+  top: 0;
+  height: 90%;
+  z-index: -2;
+}
+
+.home__title{
+    margin-top: 16vh;
+    font-size: 6vh;
+    letter-spacing: 2px;
+}
+
+.home__subTitle{
+    margin-top: 40px;
+    font-size: 4vh;
+    letter-spacing: 2px;
+}
+
+.home__list{
+    margin-top: 2.9vh;
+    list-style: none;
+
+    .home__listElement{
+        margin: 10px 0;
+        font-size: 2.8vh;
+        font-weight: 500;    
+        z-index: 1;
+        padding-left: 3.8vh;
+
+        &::before{
+            position: absolute;
+            display: block;
+            transform: translateX(-3.8vh);
+            background-image: url('../images/icons/ok.svg');
+            background-position: center;
+            background-size: 70%;
+            background-repeat: no-repeat;
+            border-radius: 50%;
+            content: '';
+            width: 2.8vh;
+            height: 2.8vh;
+            background-color: lighten($contrast-color, 10%);
+        }
+
+        .highlite{
+            color: $contrast-color;
+        }
+    }
+}
+
+.home__trends{
+    width: 85%;
+    height: 350px;
+    border-radius: 10px;
+    box-shadow: 0 0 2px 0 $font-color;
+    margin: 0 auto;
+    margin-top: 5vh;
+
+    .trends__title{
+        padding-top: 7%;
+        width: 100%;
+        text-align: center;
+        font-size: 2rem;
+        text-transform: uppercase;
+        font-weight: bold;
+    }
+}
