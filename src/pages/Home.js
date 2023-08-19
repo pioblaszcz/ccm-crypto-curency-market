@@ -1,36 +1,33 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
+import { useSelector } from 'react-redux';
+
+import TrendList from '../components/home/TrendList';
+
 import bgcvid from '../images/bgc/bgcvid.mp4';
 
-const requestUrl = `https://api.coingecko.com/api/v3/search/trending`;
 
 const Home = () => {
 
-    const [trandingCoins, setTrandingCoins] = useState(null);
-    const [trandingNFTS, setTrandingNFTS] = useState(null);
-
-    useEffect(() => {
-        fetch(requestUrl, { method: 'GET' })
-            .then(resp => resp.json())
-            .then(resp => setTrandingCoins(resp.coins))
-            .catch(err => console.log(err))
-    }, [])
-
-    const coins = trandingCoins && trandingCoins.map(coin => console.log(coin.item))
+    const menuInfo = useSelector(store => store.app.isMenuOpen);
+    const coins = useSelector(store => store.app.coinsPrices);
 
     return (
-        <div className="home">
+        <div className={`home ${menuInfo && 'home--blur'}`}>
             <video className='home__video' autoPlay loop muted>
                 <source src={bgcvid} type='video/mp4' />
             </video>
-            <h1 className="home__title">The World's Best Crypto Plaform</h1>
+            <div className="home__title">
+                <p className="home__titleText">The World's Best Crypto Plaform</p>
+                <p className="home__titleText">The World's Best Crypto Plaform</p>
+            </div>
             <ul className="home__list">
                 <li className="home__listElement"> This is a <span className="highlite">demo platform</span>, you don't need to invest <span className="highlite">anything</span></li>
                 <li className="home__listElement"> You can check the <span className="highlite">current prices</span> in the cryptocurrency markets</li>
-                <li className="home__listElement"> You can check your <span className="highlite">investment skills</span></li>
+                <li className="home__listElement">Refreshing prices every <span className="highlite">5 minutes</span></li>
             </ul>
             <div className="home__trends">
-                <p className="trends__title">Trendings 24h</p>
-                {/* {coins} */}
+                <p className="trends__title">Poupular</p>
+                <TrendList elements={coins} />
             </div>
         </div>
     )

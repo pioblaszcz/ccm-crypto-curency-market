@@ -1,0 +1,173 @@
+.prices{
+    padding: 9vh 5% 0 5%;
+    min-height: 100vh;
+    background: rgba(0, 0, 0, 0.787);
+}
+
+.prices__video{
+    position: absolute;
+  right: 0;
+  top: 0;
+  height: 90%;
+  z-index: -2;
+}
+
+.prices__trendings{
+    margin: 25px 0;
+    width: 100%;
+    height: calc(16vh + 45px);
+    position: relative;
+    overflow: hidden;
+
+    .trendings__title{
+        font-size: 3.2vh;
+        padding-left: 10px;
+        margin-bottom: 20px;
+
+        select{
+            border: none;
+            margin-left: 10px;
+            background-color: transparent;
+            color: $font-color;
+            font-size: 3vh;
+            color: darkgray;
+
+            option{
+                font-size: 2vh;
+            }
+        }
+    }
+
+    .tredings__container{
+        position: absolute;
+        display: flex;
+        animation: transformContainer 45s linear infinite;
+    }
+
+    .trendings__element{
+        height: 10vh;
+        display: flex;
+        margin: 2vh;
+        z-index: 1;
+        box-shadow: 0 0 1px 0 $font-color;
+        align-items: center;
+        overflow: hidden;
+        img{
+            height: 50%;
+            margin: 1vh;
+        }
+
+        .element__name{
+            display: flex;
+            flex-direction: column;
+            width: auto;
+            font-size: 2vh;
+            margin-right: 3vh;
+
+            span{
+                font-size: 1.8vh;
+                color: rgb(77, 75, 75);
+            }
+        }
+
+        .element__price{
+            font-size: 2vh;
+            color: $green;
+            margin-right: 3.2vh;
+        }
+
+        .element__priceNft{
+            color: $green;
+            font-size: 2vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-right: 4vh;
+            img{
+                height: 2vh;
+            }
+        }
+    }
+
+    @keyframes transformContainer {
+        0%{
+            transform: translate(0);
+        }
+
+        100%{
+            transform: translate(calc(-100% + 100vw));
+        }
+    }
+}
+
+.today__title{
+    text-align: center;
+    font-size: 3.6vh;
+    font-weight: bold;
+    color: darkgray;
+
+    img{
+        cursor: pointer;
+        height: 4.2vh;
+        transform: translateY(1vh);
+    }
+}
+
+.today__list{
+    list-style: none;
+    width: 90%;
+    margin: 3vh auto;
+
+    li{
+        margin-top: 5vh;
+        display: flex;
+        align-items: center;
+
+        .lsit__name{
+            display: flex;
+            flex-direction: column;
+            font-size: 2.7vh;
+            font-weight: bold;
+            margin-left: 2%;
+
+            span{
+                color: rgb(51, 51, 51);
+            }
+        }
+
+        .list__price{
+            margin-left: auto;
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+            font-size: 2.5vh;
+
+            span{
+                color: $green;
+
+                .price__direction{
+                    height: 2.2vh;
+                    padding-left: .4vh;
+                }
+
+
+            }
+
+            .red{
+                color: $red;
+            }
+        }
+
+        .list__logo{
+            height: 7vh;
+        }
+    }
+
+    .today__stroke{
+        display: block;
+        margin: 10px 0;
+        width: 100%;
+        height: 1px;
+        background-color: rgb(51, 51, 51);
+    }
+}

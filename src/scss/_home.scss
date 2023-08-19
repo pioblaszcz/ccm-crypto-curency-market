@@ -4,7 +4,11 @@
     width: 100vw;
     padding-top: 12vh;
     background-color: rgba(0, 0, 0, 0.74);
-    // filter: blur(2px);
+    transition: .5s;
+
+    &--blur{
+        // filter: blur(2px) drop-shadow();
+    }
 }
 
 .home__video{
@@ -17,8 +21,51 @@
 
 .home__title{
     margin-top: 16vh;
-    font-size: 6vh;
-    letter-spacing: 2px;
+    position: relative;
+
+    .home__titleText{
+        font-size: 6vh;
+        letter-spacing: 2px;
+        font-weight: bold;
+
+        &:nth-child(2){
+            position: absolute;
+            top: 0;
+            color: rgba(51, 51, 51, 0.503);
+            animation: animate 4s ease-in-out infinite;
+        }
+    }
+
+    @keyframes animate {
+        0%,
+        100% {
+            clip-path: polygon(
+                0% 45%,
+                16% 44%,
+                33% 50%,
+                54% 60%,
+                70% 61%,
+                84% 59%,
+                100% 52%,
+                100% 100%,
+                0% 100%
+            );
+        }
+    
+        50% {
+            clip-path: polygon(
+                0% 60%,
+                15% 65%,
+                34% 66%,
+                51% 62%,
+                67% 50%,
+                84% 45%,
+                100% 46%,
+                100% 100%,
+                0% 100%
+            );
+        }
+    }
 }
 
 .home__subTitle{
@@ -60,19 +107,75 @@
 }
 
 .home__trends{
-    width: 85%;
-    height: 350px;
-    border-radius: 10px;
-    box-shadow: 0 0 2px 0 $font-color;
-    margin: 0 auto;
-    margin-top: 5vh;
+    width: 90%;
+    border-radius: 20px;
+    background-color: #0c0c0c;
+    margin: 5vh auto;
+    box-shadow: 0 0 7px 0 $font-color;
 
     .trends__title{
-        padding-top: 7%;
+        padding: 7% 0;
         width: 100%;
         text-align: center;
         font-size: 2rem;
+        color: gray;
         text-transform: uppercase;
         font-weight: bold;
+    }
+
+    .trends__list{
+        list-style: none;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .list__break{
+            width: 80%;
+            height: 1px;
+            background-color: rgb(110, 110, 110);
+        }
+
+        li{
+            cursor: pointer;
+            margin: 10px 0;
+            flex-basis: 80%;
+            display: flex;
+            padding-bottom: 10px;
+
+            img{
+                height: 5vh;
+                padding-right: 10px;;
+                border-radius: 50%;
+            }
+
+            p{
+                font-size: 2.4vh;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-start;
+                justify-content: space-between;
+
+               span{
+                   color: rgb(56, 56, 56);
+               }
+            }
+
+            .list__price{
+                margin-left: auto;
+                font-weight: bold;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+
+                span{
+                    color: $green;
+                    font-size: 2vh;
+                }
+               
+                .red{
+                    color: $red;
+                }
+            }
+        }
     }
 }
