@@ -12,12 +12,12 @@ import solanaI from '../../images/coins/solana.svg';
 import tetherI from '../../images/coins/tether.svg';
 import tronI from '../../images/coins/tron.png';
 
-const PriceList = ({ coins }) => {
+const PriceList = ({ coins, click }) => {
     if (!coins) return;
     const { cardano, solana, tether, tron, bitcoin, litecoin, ethereum, dogecoin } = coins;
     return (
         <ul className="today__list">
-            <li>
+            <li onClick={() => click && click('bitcoin')}>
                 <img src={bitcoinI} alt="btc" className="list__logo" />
                 <p className="lsit__name">Bitcion <span>BTC</span></p>
                 <p className="list__price">${bitcoin.usd}
@@ -27,7 +27,7 @@ const PriceList = ({ coins }) => {
                 </p>
             </li>
             <span className="today__stroke" />
-            <li>
+            <li onClick={() => click && click('cardano')}>
                 <img src={cardanoI} alt="cardano" className="list__logo" />
                 <p className="lsit__name">Cardano <span>ADA</span></p>
                 <p className="list__price">${cardano.usd}
@@ -37,7 +37,7 @@ const PriceList = ({ coins }) => {
                 </p>
             </li>
             <span className="today__stroke" />
-            <li>
+            <li onClick={() => click && click('dogecoin')}>
                 <img src={dogeI} alt="dogecoin" className="list__logo" />
                 <p className="lsit__name">Dogecoin <span>DOGE</span></p>
                 <p className="list__price">${dogecoin.usd}
@@ -47,7 +47,7 @@ const PriceList = ({ coins }) => {
                 </p>
             </li>
             <span className="today__stroke" />
-            <li>
+            <li onClick={() => click && click('ethereum')}>
                 <img src={ethI} alt="ethereum" className="list__logo" />
                 <p className="lsit__name">Etherum <span>ETH</span></p>
                 <p className="list__price">${ethereum.usd}
@@ -57,7 +57,7 @@ const PriceList = ({ coins }) => {
                 </p>
             </li>
             <span className="today__stroke" />
-            <li>
+            <li onClick={() => click && click('litecoin')}>
                 <img src={litecoinI} alt="litecoin" className="list__logo" />
                 <p className="lsit__name">Litecoin <span>LTC</span></p>
                 <p className="list__price">${litecoin.usd}
@@ -67,7 +67,7 @@ const PriceList = ({ coins }) => {
                 </p>
             </li>
             <span className="today__stroke" />
-            <li>
+            <li onClick={() => click && click('solana')}>
                 <img src={solanaI} alt="solana" className="list__logo" />
                 <p className="lsit__name">Solana <span>SOL</span></p>
                 <p className="list__price">${solana.usd}
@@ -77,7 +77,7 @@ const PriceList = ({ coins }) => {
                 </p>
             </li>
             <span className="today__stroke" />
-            <li>
+            <li onClick={() => click && click('tether')}>
                 <img src={tetherI} alt="tether" className="list__logo" />
                 <p className="lsit__name">Tether <span>USDt</span></p>
                 <p className="list__price">${tether.usd}
@@ -87,7 +87,7 @@ const PriceList = ({ coins }) => {
                 </p>
             </li>
             <span className="today__stroke" />
-            <li>
+            <li onClick={() => click && click('tron')}>
                 <img src={tronI} alt="tron" className="list__logo" />
                 <p className="lsit__name">Tron <span>TRX</span></p>
                 <p className="list__price">${tron.usd}

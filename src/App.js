@@ -1,12 +1,13 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { createBrowserRouter, createRoutesFromElements, Route, Outlet, RouterProvider } from 'react-router-dom';
+import { createHashRouter, createRoutesFromElements, Route, Outlet, RouterProvider } from 'react-router-dom';
 
 import { setPrices } from './redux/actions/appActions';
 
 import Navigation from './components/Navigation';
 import Home from './pages/Home';
 import Prices from './pages/Prices';
+import Demo from './pages/Demo';
 
 const requestUrl = 'https://api.coingecko.com/api/v3/simple/price?ids=bitcoin%2Cbnb%2Cethereum%2Ctether%2Cxrp%2Ccardano%2Cdogecoin%2Csolana%2Ctron%2Clitecoin%2Chedera&vs_currencies=usd&include_market_cap=false&include_24hr_change=true';
 
@@ -24,11 +25,12 @@ function App() {
   })
 
 
-  const router = createBrowserRouter(
+  const router = createHashRouter(
     createRoutesFromElements(
       <Route path="/" element={<Root />}>
         <Route index element={<Home />} />
         <Route path='/prices' element={<Prices />} />
+        <Route path='/demo' element={<Demo />} />
       </Route>
     )
   )

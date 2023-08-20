@@ -14,6 +14,7 @@ const Prices = () => {
     const [btcUsd, setBtcUsd] = useState(null);
     const [trendings, setTrendings] = useState(null);
 
+    const menuInfo = useSelector(store => store.app.isMenuOpen);
     const coins = useSelector(store => store.app.coinsPrices);
 
     useEffect(() => {
@@ -39,25 +40,27 @@ const Prices = () => {
     const trendingNftsEl = trendings && trendings.nfts.map(nft => <TrendingNft key={nft.id} nft={nft} />);
 
     return (
-        <div className="prices">
-            <video className='prices__video' autoPlay loop muted>
-                <source src={bgcvid} type='video/mp4' />
-            </video>
-            <div className="prices__trendings">
-                <p className="trendings__title">
-                    Trendings:
+        <div className={`${menuInfo && 'blur'}`}>
+            <div className="prices">
+                <video className='prices__video' autoPlay loop muted>
+                    <source src={bgcvid} type='video/mp4' />
+                </video>
+                <div className="prices__trendings">
+                    <p className="trendings__title">
+                        Trendings:
                     <select onChange={handleChangeTrendings}>
-                        <option value="coins">Coins</option>
-                        <option value="nfts">NFTs</option>
-                    </select>
-                </p>
-                <div className="tredings__container">
-                    {isNfts ? trendingNftsEl : trendingsCoinEl}
+                            <option value="coins">Coins</option>
+                            <option value="nfts">NFTs</option>
+                        </select>
+                    </p>
+                    <div className="tredings__container">
+                        {isNfts ? trendingNftsEl : trendingsCoinEl}
+                    </div>
                 </div>
-            </div>
-            <div className="prices__today">
-                <p className="today__title">Today prices <img src={find} alt="" /></p>
-                <PriceList coins={coins} />
+                <div className="prices__today">
+                    <p className="today__title">Today prices <img src={find} alt="" /></p>
+                    <PriceList coins={coins} click={null} />
+                </div>
             </div>
         </div>
     );

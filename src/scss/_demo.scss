@@ -1,0 +1,305 @@
+.demo{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgb(17, 17, 17);
+    z-index: 5;
+    min-height: 100vh;
+    width: 100vw;
+    max-width: 100vw;
+    transition: .5s;
+    
+    &--blur{
+       filter: blur(2px); 
+    }
+}
+
+.demo__header{
+    position: relative;
+    margin: 2vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+        
+    img{
+        cursor: pointer;
+        height: 4vh;
+        margin-right: .8vh;
+    }
+}
+
+.header__logo{
+    font-size: 2.6vh;
+    font-weight: bold;
+    text-align: center;
+    margin-left: .8vh;;
+    padding: 1.2vh;
+    border-radius: 6px;
+    background-color: rgba(95, 95, 95, 0.438);
+}
+
+.header__deposit{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: flex;
+    flex-direction: column;
+    font-size: 2.2vh;
+    font-weight: bold;
+    align-items: center;
+    justify-content: center;
+
+    .deposit__profit{
+        font-size: 1.6vh;
+        text-transform: uppercase;
+
+        span{
+            color: rgb(80, 80, 80);
+        }
+    }
+
+}
+
+.demo__chart{
+    padding: 0 5%;
+}
+
+.demo__actions{
+    width: 80%;
+    margin: 2vh auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+
+    button{
+        cursor: pointer;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 2.2vh;
+        padding: .4vh 0;
+        background-color: transparent;
+        color: $font-color;
+        flex-basis: 40%;
+        border-radius: 10px;
+        border-color: $font-color;
+    }
+
+    .demo__buy{
+        background-color: darken($green, 20%);
+        margin-right: 1.5vh;
+    }
+
+    .demo__sell{
+        background-color: darken($red, 20%);
+        margin-left: 1.5vh;
+    }
+
+    .demo__positions{
+        margin-top: 3vh;
+        flex-basis:calc(80% + 3vh);
+    }
+}
+
+.demo__intervals{
+    display: flex;
+    justify-content: center;
+
+    button{
+        cursor: pointer;
+        margin: 1vh 2vh;
+        padding: .2vh 1.5vh;
+        background-color: transparent;
+        color: $font-color;
+        font-weight: bold;
+        border-radius: 5px;
+        border: none;
+        box-shadow: 0 0 2px 0 $font-color;
+    }
+}
+
+.modalContainer{
+    position: absolute;
+    z-index: 10;
+    width: 100vw;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.123);
+}
+
+.modal{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 70vw;
+    height: 40vh;
+    background-color: rgb(15, 15, 15);
+    border-radius: 10px;
+    box-shadow: 0 0 5px 0 $font-color;
+
+    .modal__close{
+        position: absolute;
+        top: 2%;
+        right: 4%;
+        cursor: pointer;
+        background-color: transparent;
+        border: none;
+
+        img{
+            height: 5.5vh;
+        }
+    }
+
+    .modal__title{
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 3vh;
+        margin-top: 5vh;
+        font-weight: bold;
+        letter-spacing: 2px;
+
+        &--red{
+            color: $red;
+        }
+
+        &--green{
+            color: $green;
+        }
+    }
+
+    .modal__bought{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        animation: showImage 1.5s .8s forwards;
+        transform: scale(0);
+        height: 5vh;
+    }
+
+    .modal__content{
+        width: 85%;
+        margin: 0 auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center ;
+        margin-top: 2vh;
+        transition: 1s;
+
+        &--hide{
+            transform: scale(0);
+        }
+
+        input{
+            width: 50%;
+            border: none;
+            border-radius: 10px;
+            padding: 1vh;
+        }
+
+        .modal__price{
+            margin-top: 4vh;
+            font-weight: bold;
+            font-size: 2.6vh;
+        }
+
+        .modal__confirm{
+            padding: 1vh 0;
+            margin-top: 4vh;
+            width: 40%;
+            text-transform: uppercase;
+            font-weight: bold;
+            color: $font-color;
+            border: none;
+            background: transparent;
+            border-radius: 8px;
+            border: 2px solid $red;
+
+            &--green{
+                border-color: $green;
+            }
+        }
+
+        .modal__warn{
+            margin-top: 1vh;
+            font-size: 1.6vh;
+            color: $red;
+            text-align: center;
+            font-weight: bold;
+
+            span{
+                color: $green;
+            }
+        }
+
+        .modal__havePosition{
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+              .modal__warnSell{
+                font-size: 1.6vh;
+                text-align: center;
+
+                span{
+                    text-transform: uppercase;
+                    font-weight: bold;
+                }
+        }
+
+        span{
+            margin-top: 1.5vh;
+        }
+        }
+      
+        .modal__sell{
+            width: 80%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            p{
+                margin-top: 2.2vh;
+                font-weight: bold;
+                display: flex;
+                font-size: 2.6vh;
+                justify-content: center;
+                align-items: center;
+                text-transform: uppercase;
+
+                input{
+                    margin-right: 1vh;
+                    color: $green;
+                    background-color: rgb(54, 54, 54);
+                    border: none;
+                    box-shadow: 0 0 4px 0 $font-color;
+                }
+            }
+
+            span{
+                margin-top: 2vh;
+                text-transform: uppercase;  
+            }
+
+            .modal__confirm{
+                padding: 1vh 2vh;
+                width: 58%;
+                margin-top: 3vh;
+            }
+        }
+    }
+
+}
+
+@keyframes showImage {
+    0%{
+        transform: translate(-50%, -50%) scale(0);
+    }
+    100%{
+        transform: translate(-50%, -50%) scale(1);
+    }
+}

@@ -2,6 +2,7 @@
 @import 'navigation';
 @import 'home';
 @import 'prices';
+@import 'demo';
 
 *{
     margin: 0;
@@ -11,6 +12,7 @@
 
 html{
   font-size: $base-font-size;  
+  
 }
 
 body{
@@ -19,4 +21,15 @@ body{
     background-color: rgb(0, 0, 0);
     color: $font-color;
     font-family: $base-font;   
+}
+
+.blur{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  transition: 1s;
+  background-color: transparent;
+  filter: blur(2px);
 }

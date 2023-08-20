@@ -1,14 +1,9 @@
 .home{
-    height: 100vh;
+    min-height: 100vh;
     padding: 0 6vw;
     width: 100vw;
     padding-top: 12vh;
     background-color: rgba(0, 0, 0, 0.74);
-    transition: .5s;
-
-    &--blur{
-        // filter: blur(2px) drop-shadow();
-    }
 }
 
 .home__video{
