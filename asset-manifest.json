@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/ccm-crypto-curency-market/static/css/main.48ced3c8.css",
-    "main.js": "/ccm-crypto-curency-market/static/js/main.6b3bf417.js",
+    "main.js": "/ccm-crypto-curency-market/static/js/main.098a8d74.js",
     "static/js/787.d0730385.chunk.js": "/ccm-crypto-curency-market/static/js/787.d0730385.chunk.js",
     "static/media/bgcvid.mp4": "/ccm-crypto-curency-market/static/media/bgcvid.afb36bc8951ea983aa4a.mp4",
     "static/media/phone.png": "/ccm-crypto-curency-market/static/media/phone.ef431c8cf8db26277812.png",
@@ -16,11 +16,11 @@
     "index.html": "/ccm-crypto-curency-market/index.html",
     "static/media/tether.svg": "/ccm-crypto-curency-market/static/media/tether.d13f23ae63a674b4e9a3ffeaba800c34.svg",
     "main.48ced3c8.css.map": "/ccm-crypto-curency-market/static/css/main.48ced3c8.css.map",
-    "main.6b3bf417.js.map": "/ccm-crypto-curency-market/static/js/main.6b3bf417.js.map",
+    "main.098a8d74.js.map": "/ccm-crypto-curency-market/static/js/main.098a8d74.js.map",
     "787.d0730385.chunk.js.map": "/ccm-crypto-curency-market/static/js/787.d0730385.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.48ced3c8.css",
-    "static/js/main.6b3bf417.js"
+    "static/js/main.098a8d74.js"
   ]
 }
