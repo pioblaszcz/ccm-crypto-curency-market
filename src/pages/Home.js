@@ -42,7 +42,7 @@ const Home = () => {
                     <div className="home__demo">
                         <p className="demo__title">Try Our <span>Demo Platform</span></p>
                         <img src={phone} alt="phone" data-aos="flip-right" className="demo__phone" />
-                        <Link to='/demo' className="demo__button"><button data-aos="fade-up ">click here</button></Link>
+                        <Link to='/demo' className="demo__button" onClick={() => window.scrollTo(0, 0)}><button data-aos="fade-up ">click here</button></Link>
                     </div>
                     <div className="home__footer" >
                         <p>Designed by <span>piotrblaszczak.com</span> </p>
