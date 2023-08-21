@@ -58,7 +58,10 @@ const DemoModal = ({ type, hide, name, deposit, setDeposit }) => {
 
     const handleConfirm = (type, nameToOperation = name, valueToSell = sellValue) => {
         const openPrice = nameToOperation + 'O';
-
+        if (deposit.usd - 2 - (inputValue * coins[name].usd) < 0 && !isBought) {
+            warningRef.current.innerHTML = warning;
+            return;
+        }
         if (type === 'buy') {
             setDeposit({
                 ...deposit,
@@ -75,10 +78,6 @@ const DemoModal = ({ type, hide, name, deposit, setDeposit }) => {
             setIsBought(true);
             setTimeout(() => hide(), 2500);
         } else {
-            if (deposit.usd - 2 - (inputValue * coins[name].usd) < 0 && !isBought) {
-                warningRef.current.innerHTML = warning;
-                return;
-            }
             setDeposit({
                 ...deposit,
                 usd: deposit.usd + valueToSell * coins[nameToOperation].usd + deposit[openPrice].spread,
@@ -117,7 +116,7 @@ const DemoModal = ({ type, hide, name, deposit, setDeposit }) => {
         </div>
     ) : type === 'sell' ? (
         <div className={`modal__content ${isBought && 'modal__content--hide'}`}>
-            {!deposit[name] || deposit[name] < 0 ?
+            {(!deposit[name] || deposit[name] < 0) && !sellValue ?
                 (<p className="modal__havePosition">
                     <span className="modal__warnSell" ref={warningRef}>
                         U dont have any <span className="warnSell__name">{name}</span>!

@@ -306,6 +306,7 @@
         margin: 0 auto;
         height: 75%;
         overflow: hidden;
+        overflow-y: scroll;
         .positions__position{
             display: flex;
             align-items: center;
