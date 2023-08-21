@@ -18,6 +18,32 @@ const DemoModal = ({ type, hide, name, deposit, setDeposit }) => {
 
     const warning = `U dont have enough free money, your budget is: <span>${(deposit.usd - 2).toFixed(2)}$</span>`;
 
+    let positions = [];
+
+    if (type === 'positions') {
+        for (let pos in deposit) {
+            if (deposit.hasOwnProperty(pos)) {
+                if (pos.includes('O')) {
+                    positions.push({
+                        id: pos.slice(0, pos.indexOf('O')),
+                        value: deposit[pos].value
+                    })
+                }
+            }
+        }
+    }
+
+    const positionsEL = positions && positions.map((pos, id) => {
+        if (pos.value > 0) return (
+            <div key={id} className="positions__position">
+                <p className="position__id">{pos.id}</p>
+                <p className="position__value">{pos.value}</p>
+                <button className="position__close" onClick={() => handleConfirm('sellAll', pos.id, pos.value)}>close</button>
+            </div>
+        )
+        return null;
+    });
+
     useEffect(() => {
         modalRef.current.style.top = window.scrollY + 'px';
         document.body.style.overflow = 'hidden';
@@ -30,27 +56,43 @@ const DemoModal = ({ type, hide, name, deposit, setDeposit }) => {
         setInputValue(value);
     }
 
-    const handleConfirm = (type) => {
+    const handleConfirm = (type, nameToOperation = name, valueToSell = sellValue) => {
+        const openPrice = nameToOperation + 'O';
+
         if (type === 'buy') {
-            if (deposit.usd - 2 - (inputValue * coins[name].usd) < 0) {
+            setDeposit({
+                ...deposit,
+                usd: deposit.usd - (inputValue * coins[name].usd),
+                [name]: deposit[name] ? parseFloat(deposit[name]) + parseFloat(inputValue) : parseFloat(inputValue),
+                [openPrice]: deposit[openPrice] ?
+                    {
+                        price: (deposit[openPrice].price + coins[name].usd) / 2,
+                        value: deposit[openPrice].value + parseFloat(inputValue),
+                        spread: deposit[openPrice].spread - 2
+                    }
+                    : { price: coins[name].usd, value: parseFloat(inputValue), spread: -2 }
+            })
+            setIsBought(true);
+            setTimeout(() => hide(), 2500);
+        } else {
+            if (deposit.usd - 2 - (inputValue * coins[name].usd) < 0 && !isBought) {
                 warningRef.current.innerHTML = warning;
                 return;
             }
             setDeposit({
                 ...deposit,
-                usd: deposit.usd - 2 - (inputValue * coins[name].usd),
-                [name]: deposit[name] ? parseFloat(deposit[name]) + parseFloat(inputValue) : inputValue
+                usd: deposit.usd + valueToSell * coins[nameToOperation].usd + deposit[openPrice].spread,
+                [nameToOperation]: deposit[nameToOperation] - valueToSell,
+                [openPrice]: {
+                    price: deposit[openPrice].value - valueToSell < 0 ? coins[nameToOperation].usd : deposit[openPrice].price,
+                    value: deposit[openPrice].value - valueToSell < 0 ? 0 : deposit[openPrice].value - valueToSell,
+                    spread: 0
+                }
             })
-            setIsBought(true);
-            setTimeout(() => hide(), 2500);
-        } else {
-            setDeposit({
-                ...deposit,
-                usd: deposit.usd + sellValue * coins[name].usd,
-                [name]: deposit[name] - sellValue
-            })
-            setIsBought(true);
-            setTimeout(() => hide(), 2500);
+            if (type !== 'sellAll') {
+                setIsBought(true);
+                setTimeout(() => hide(), 2500);
+            }
         }
     }
 
@@ -95,14 +137,16 @@ const DemoModal = ({ type, hide, name, deposit, setDeposit }) => {
                 )
             }
         </div>
-    ) : <div></div>;
+    ) : <div className="modal__positions">
+                {positionsEL}
+            </div>;
 
     return (
         <div className="modalContainer" ref={modalRef}>
             <div className="modal">
-                <button className="modal__close" onClick={hide}>
+                {!isBought && <button className="modal__close" onClick={hide}>
                     <img src={closemodal} alt="" />
-                </button>
+                </button>}
                 <p className={
                     `modal__title 
                     ${type === 'buy' && 'modal__title--green'}

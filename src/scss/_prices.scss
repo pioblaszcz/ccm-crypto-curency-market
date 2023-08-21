@@ -133,6 +133,16 @@
             span{
                 color: rgb(51, 51, 51);
             }
+
+            .list__nameCoin{
+                color: $font-color;
+                
+            .list__img{
+                height: 2.7vh;
+                margin-left: 1vh;
+                padding-top: .4vh;
+            }
+            }
         }
 
         .list__price{

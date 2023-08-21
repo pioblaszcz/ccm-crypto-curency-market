@@ -71,6 +71,7 @@ const Demo = () => {
     const [deposit, setDeposit] = useState(JSON.parse(window.localStorage.getItem('deposit')) ? JSON.parse(window.localStorage.getItem('deposit')) : { usd: 10000 });
     const [usd, setUsd] = useState(null);
     const [range, setRange] = useState(29);
+    const [profit, setProfit] = useState(0);
     const [name, setName] = useState('bitcoin')
     const [data, setData] = useState(null);
     const [showModal, setShowModal] = useState(false);
@@ -89,13 +90,22 @@ const Demo = () => {
 
     useEffect(() => {
         let usdFromCoins = 0;
+        let spread = 0;
+        let benefit = 0;
         for (let coin in deposit) {
             if (deposit.hasOwnProperty(coin)) {
-                if (coin !== 'usd' && coins) usdFromCoins += deposit[coin] * coins[coin].usd;
+                if (coin !== 'usd' && !coin.includes('O') && coins) {
+                    usdFromCoins += deposit[coin] * coins[coin].usd;
+                }
+                else if (coin.includes('O')) {
+                    spread += deposit[coin].spread;
+                    benefit += (coins && (coins[coin.slice(0, coin.indexOf('O'))].usd - deposit[coin].price) * deposit[coin].value) + deposit[coin].spread;
+                }
             }
         }
+        setProfit(benefit)
         window.localStorage.setItem('deposit', JSON.stringify(deposit));
-        setUsd(usdFromCoins + deposit.usd);
+        setUsd(usdFromCoins + deposit.usd + spread);
     }, [deposit, coins])
 
     useEffect(() => {
@@ -118,6 +128,7 @@ const Demo = () => {
             })
     }, [name, range])
 
+
     const handleShowModal = (type) => {
         setType(type);
         setShowModal(true)
@@ -137,7 +148,7 @@ const Demo = () => {
                     <p className="header__logo">CCM</p>
                     <p className="header__deposit">
                         {usd ? usd.toFixed(2) : 10000} USD
-                    <span className="deposit__profit">profit : <span>0.00</span></span>
+                    <span className="deposit__profit">profit : <span className={profit < 0 ? 'red' : profit > 0 ? 'green' : ''}>${profit.toFixed(2)}</span></span>
                     </p>
                     <Link to="/"> <img src={x} alt="exit" /></Link>
                 </div>
