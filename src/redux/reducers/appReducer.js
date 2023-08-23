@@ -22,7 +22,6 @@ export const appReducer = (state = initialState, action) => {
                 coinsPrices: action.payload
             };
         default:
-            console.warn(`Nie mamy akcji typu: ${action.type}`);
             return state;
     }
 }

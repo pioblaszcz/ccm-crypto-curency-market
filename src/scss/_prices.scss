@@ -76,7 +76,7 @@
         display: flex;
         margin: 2vh;
         z-index: 1;
-        box-shadow: 0 0 1px 0 $font-color;
+        box-shadow: 0 0 2px 0 $font-color;
         align-items: center;
         overflow: hidden;
         img{
@@ -327,7 +327,18 @@
     }
     .prices__trendings{
         .tredings__container{
-       animation-duration: 10s;
+       animation-duration: 12s;
         }
     }
+
+    @keyframes transformContainer {
+        0%{
+            transform: translate(0);
+        }
+
+        100%{
+            transform: translate(calc(-100% + 1200px));
+        }
+    }
+
 }
