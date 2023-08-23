@@ -32,7 +32,7 @@
     span{
        display: block;
        width: 1px;
-       height: 60%;
+       height: 50%;
        background-color: #fff;
         margin: 0 15px;
     }
@@ -107,6 +107,7 @@
 .naviagtion__list{
     position: fixed;
     bottom: 0;
+    left: -100%;
     z-index: 6; 
     width: 80%;
     height: calc(91vh - 1px);
@@ -118,7 +119,6 @@
     list-style: none;
     justify-content: flex-start;
     align-items: center;
-    transform: translateX(-100%);
 
         a{
             display: block;
@@ -139,8 +139,161 @@
 
 
     &--active{
-        transform: translate(0);
+       left: 0;
 
     }
 
+}
+
+@media screen and (min-width: $mobileL){
+    .navigation__logo{
+        font-size: 2.2rem;
+
+        .navigation__logo-img{
+            height: 3rem;
+            padding-right: 10px;
+        }
+    }
+
+    .navigation__changeLanguage{
+        height: 3.4rem;
+    }
+
+    .navigation__hamburger{
+        .hamburger__box{
+            width: 36px;
+
+            .hamburger__inner{
+                height: 3px;
+
+                &::before{
+                    height: 3px;
+                    top: -10px;
+                }
+        
+                &::after{
+                    height: 3px;
+                    top: 10px;
+                }
+            }
+
+           
+        }
+
+        &--active{
+            .hamburger__inner{
+    
+                &::before{
+                    transform: translateY(10px) rotate(45deg);
+                }
+    
+                &::after{
+                    transform: translateY(-10px) rotate(-45deg);
+                }
+            }
+        }
+    }
+
+    .naviagtion__list{
+        width: 70%;
+    }
+}
+
+@media screen and (min-width: $desktopS){
+
+    .navigation__hamburger{
+        display: none;
+    }
+
+    .navigation{
+        height: 85px;
+        flex-wrap: nowrap;
+    }
+
+    .navigation__container{
+        flex-basis: 340px;
+
+        .navigation__logo{
+            font-size: 2.2rem;
+            margin-left: 4vw;
+
+            .navigation__logo-img{
+                height: 3.2rem;
+            }
+
+            span{
+                width: 1.1px;
+                height: 45%;
+            }
+        }
+    }
+
+    .naviagtion__list{
+        position: static;
+        flex-basis: fill;
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: 40px;
+        height: 100%;
+        transition: 0;
+        flex-direction: row;
+        justify-content: space-evenly;
+        padding-top: 0;
+        transform: translate(0);
+    
+            a{
+                display: block;
+                cursor: pointer;
+                padding: 0;
+                text-transform: none;
+                font-weight: normal;
+                color: darken($font-color, 20%);
+                width: auto;
+                text-align: center;
+                border-radius: none;
+                box-shadow: none;
+                font-size: 1.8rem;
+                letter-spacing: 1px;
+                transition: .5s;
+
+                &:hover{
+                    color: $font-color; 
+                }
+            }     
+    }
+
+}
+
+@media screen and (min-width: $desktopL){
+    .navigationBox{
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 85px;
+        background-color: #0c0c0c;
+        box-shadow: 0 1px 2px 0 rgb(173, 173, 173);
+        z-index: 6;
+    }
+
+    .navigation{
+        max-width: 1280px;
+        left: 50%;
+        transform: translateX(-50%);
+        box-shadow: none;
+    }
+
+    .navigation__container{
+        .navigation__logo{
+            font-size: 2.2rem;
+            
+            .navigation__logo-img{
+                height: 3.5rem;
+            }
+
+            span{
+                width: 1.1px;
+            }
+        }
+    }
 }

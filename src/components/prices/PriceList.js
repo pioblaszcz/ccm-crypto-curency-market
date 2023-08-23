@@ -15,12 +15,13 @@ import chart from '../../images/icons/chart.png';
 
 const PriceList = ({ coins, click }) => {
     const [active, setActive] = useState('bitcoin');
+    const classElement = click ? 'demo' : 'today';
 
     if (!coins) return;
     const { cardano, solana, tether, tron, bitcoin, litecoin, ethereum, dogecoin } = coins;
 
     return (
-        <ul className="today__list">
+        <ul className={`${classElement}__list`}>
             <li onClick={() => { if (click) { click('bitcoin'); setActive('bitcoin') } }}>
                 <img src={bitcoinI} alt="btc" className="list__logo" />
                 <p className="lsit__name">
@@ -34,7 +35,7 @@ const PriceList = ({ coins, click }) => {
                     </span>
                 </p>
             </li>
-            <span className="today__stroke" />
+            <span className={`${classElement}__stroke`} />
             <li onClick={() => { if (click) { click('cardano'); setActive('cardano') } }}>
                 <img src={cardanoI} alt="cardano" className="list__logo" />
                 <p className="lsit__name">
@@ -46,7 +47,7 @@ const PriceList = ({ coins, click }) => {
                     </span>
                 </p>
             </li>
-            <span className="today__stroke" />
+            <span className={`${classElement}__stroke`} />
             <li onClick={() => { if (click) { click('dogecoin'); setActive('dogecoin') } }}>
                 <img src={dogeI} alt="dogecoin" className="list__logo" />
                 <p className="lsit__name">
@@ -58,7 +59,7 @@ const PriceList = ({ coins, click }) => {
                     </span>
                 </p>
             </li>
-            <span className="today__stroke" />
+            <span className={`${classElement}__stroke`} />
             <li onClick={() => { if (click) { click('ethereum'); setActive('ethereum') } }}>
                 <img src={ethI} alt="ethereum" className="list__logo" />
                 <p className="lsit__name">
@@ -69,7 +70,7 @@ const PriceList = ({ coins, click }) => {
                     </span>
                 </p>
             </li>
-            <span className="today__stroke" />
+            <span className={`${classElement}__stroke`} />
             <li onClick={() => { if (click) { click('litecoin'); setActive('litecoin') } }}>
                 <img src={litecoinI} alt="litecoin" className="list__logo" />
                 <p className="lsit__name"><span className="list__nameCoin">Litecoin{active === 'litecoin' && click ? <img className="list__img" src={chart} alt='chart' /> : null}</span> <span>LTC</span></p>
@@ -79,7 +80,7 @@ const PriceList = ({ coins, click }) => {
                     </span>
                 </p>
             </li>
-            <span className="today__stroke" />
+            <span className={`${classElement}__stroke`} />
             <li onClick={() => { if (click) { click('solana'); setActive('solana') } }}>
                 <img src={solanaI} alt="solana" className="list__logo" />
                 <p className="lsit__name"><span className="list__nameCoin">Solana{active === 'solana' && click ? <img className="list__img" src={chart} alt='chart' /> : null}</span>  <span>SOL</span></p>
@@ -89,7 +90,7 @@ const PriceList = ({ coins, click }) => {
                     </span>
                 </p>
             </li>
-            <span className="today__stroke" />
+            <span className={`${classElement}__stroke`} />
             <li onClick={() => { if (click) { click('tether'); setActive('tether') } }}>
                 <img src={tetherI} alt="tether" className="list__logo" />
                 <p className="lsit__name"><span className="list__nameCoin">Tether{active === 'tether' && click ? <img className="list__img" src={chart} alt='chart' /> : null}</span> <span>USDt</span></p>
@@ -99,7 +100,7 @@ const PriceList = ({ coins, click }) => {
                     </span>
                 </p>
             </li>
-            <span className="today__stroke" />
+            <span className={`${classElement}__stroke`} />
             <li onClick={() => { if (click) { click('tron'); setActive('tron') } }}>
                 <img src={tronI} alt="tron" className="list__logo" />
                 <p className="lsit__name"><span className="list__nameCoin">Tron{active === 'tron' && click ? <img className="list__img" src={chart} alt='chart' /> : null}</span> <span>TRX</span></p>

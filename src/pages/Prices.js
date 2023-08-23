@@ -6,7 +6,7 @@ import TrendingNft from '../components/prices/TrendingNft';
 import PriceList from '../components/prices/PriceList';
 
 import find from '../images/icons/find.svg'
-import bgcvid from '../images/bgc/bgcvid.mp4';
+import bgcvid from '../images/bgc/bgcmid.mp4';
 
 const Prices = () => {
 
@@ -41,25 +41,32 @@ const Prices = () => {
 
     return (
         <div className={`${menuInfo && 'blur'}`}>
-            <div className="prices">
-                <video className='prices__video' autoPlay loop muted>
-                    <source src={bgcvid} type='video/mp4' />
-                </video>
-                <div className="prices__trendings">
-                    <p className="trendings__title">
-                        Trendings:
+            <div className="container">
+                <div className="prices">
+                    <video className='prices__video' autoPlay loop muted>
+                        <source src={bgcvid} type='video/mp4' />
+                    </video>
+                    <div className="prices__videoDarken"></div>
+                    <div className="prices__trendings">
+                        <p className="trendings__title">
+                            Trendings:
                     <select onChange={handleChangeTrendings}>
-                            <option value="coins">Coins</option>
-                            <option value="nfts">NFTs</option>
-                        </select>
-                    </p>
-                    <div className="tredings__container">
-                        {isNfts ? trendingNftsEl : trendingsCoinEl}
+                                <option value="coins">Coins</option>
+                                <option value="nfts">NFTs</option>
+                            </select>
+                        </p>
+                        <div className="tredings__container">
+                            {isNfts ? trendingNftsEl : trendingsCoinEl}
+                        </div>
+                    </div>
+                    <div className="prices__today">
+                        <p className="today__title">Today prices <img src={find} alt="" /></p>
+                        <PriceList coins={coins} click={null} />
                     </div>
                 </div>
-                <div className="prices__today">
-                    <p className="today__title">Today prices <img src={find} alt="" /></p>
-                    <PriceList coins={coins} click={null} />
+                <div className="home__footer" >
+                    <p>Made by <span>piotrblaszczak.com</span> </p>
+                    <p className="copy">&copy; 2023 </p>
                 </div>
             </div>
         </div>

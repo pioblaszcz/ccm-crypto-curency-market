@@ -1,8 +1,11 @@
-.prices{
+.container{
+    background-color: rgba(0, 0, 0, 0.541);
+    .prices{
     padding: 9vh 5% 0 5%;
     min-height: 100vh;
-    background: rgba(0, 0, 0, 0.787);
 }
+}
+
 
 .prices__video{
     position: absolute;
@@ -10,6 +13,30 @@
   top: 0;
   height: 90%;
   z-index: -2;
+}
+
+.prices__videoDarken{
+    position: absolute;
+    width: 100%;
+    height: 10vh;
+    bottom: 10vh;
+    background-color: rgba(0, 0, 0, 0.219);
+    z-index: -2;
+    left: 0;
+
+    &::after, &::before{
+        position: absolute;
+        bottom: 0;
+        content: '';
+        width: 100%;
+        background-color: rgba(10, 10, 10, 0.719);
+        height: 33%;
+    }
+
+    &::after{
+        bottom: 33%;
+        background-color: rgba(10, 10, 10, 0.493);
+    }
 }
 
 .prices__trendings{
@@ -117,6 +144,7 @@
     list-style: none;
     width: 90%;
     margin: 3vh auto;
+    margin-bottom: 6rem;
 
     li{
         margin-top: 5vh;
@@ -179,5 +207,127 @@
         width: 100%;
         height: 1px;
         background-color: rgb(51, 51, 51);
+    }
+}
+
+@media screen and (min-width: $mobileXL){
+
+    .prices__trendings{
+        height: 170px;
+    
+        .trendings__title{
+            font-size: 2.7rem;
+            
+        }
+    
+        .trendings__element{
+            height: 85px;
+
+            .element__name{
+                font-size: 1.6rem;
+            }
+    
+            .element__price{
+                margin-left: 2rem;
+                margin-right: 1.5rem;
+            }
+    
+            .element__priceNft{
+                margin-left: 2rem;
+                margin-right: 1.5rem;
+                padding-right: 2rem;
+                img{
+                    height: 1.7rem;
+                }
+            }
+        }
+    }
+
+    .today__list{
+        li{
+            margin-top: 2rem;
+
+            .lsit__name{
+                font-size: 2rem;
+            }
+    
+            .list__price{
+                font-size: 1.8rem;
+    
+                span{
+                    color: $green;
+    
+                    .price__direction{
+                        height: 1.7rem;
+                    }
+                }
+            }
+    
+            .list__logo{
+                height: 5.5rem;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $desktopS){
+    .prices{
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+
+    .today__list{
+        li{
+            .lsit__name{
+                font-size: 2.2rem;
+            }
+    
+            .list__price{
+                font-size: 1.9rem;
+    
+                span{
+                    .price__direction{
+                        height: 1.7rem;
+                    }
+                }
+            }
+    
+            .list__logo{
+                height: 5.7rem;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $desktopM){
+
+    .prices__trendings{
+        .tredings__container{
+       animation-duration: 28s;
+        }
+    }
+
+    .today__title{
+        font-size: 3.7rem;
+        img{
+            height: 4.3rem;
+        }
+    }
+
+    .today__list{
+        width: 80%;
+    }
+}
+
+@media screen and (min-width: $desktopL){
+    .prices__video {
+        right: 50%;
+        transform: translateX(50%);
+      
+    }
+    .prices__trendings{
+        .tredings__container{
+       animation-duration: 10s;
+        }
     }
 }

@@ -143,31 +143,34 @@ const Demo = () => {
                 deposit={deposit}
                 setDeposit={setDeposit}
             />}
-            <div className={`demo ${showModal && 'demo--blur'}`}>
-                <div className="demo__header">
-                    <p className="header__logo">CCM</p>
-                    <p className="header__deposit">
-                        {usd ? usd.toFixed(2) : 10000} USD
+            <div className="demo__container">
+                <div className={`demo ${showModal && 'demo--blur'}`}>
+                    <div className="demo__header">
+                        <p className="header__logo">CCM</p>
+                        <p className="header__deposit">
+                            {usd ? usd.toFixed(2) : 10000} USD
                     <span className="deposit__profit">profit : <span className={profit < 0 ? 'red' : profit > 0 ? 'green' : ''}>${profit.toFixed(2)}</span></span>
-                    </p>
-                    <Link to="/"> <img src={x} alt="exit" /></Link>
+                        </p>
+                        <Link to="/"> <img src={x} alt="exit" /></Link>
+                    </div>
+                    {data &&
+                        <div className="demo__chart-container">
+                            <div className="demo__chart"><Line className="demo__chartInside" options={options} data={data} /></div>
+                            <div className="demo__intervals">
+                                <button onClick={() => setRange(1)}>1D</button>
+                                <button onClick={() => setRange(6)}>7D</button>
+                                <button onClick={() => setRange(29)}>30D</button>
+                            </div>
+                            <div className="demo__actions">
+                                <button className="demo__buy" onClick={() => handleShowModal('buy')}>buy</button>
+                                <button className="demo__sell" onClick={() => handleShowModal('sell')}>sell</button>
+                                <button className="demo__positions" onClick={() => handleShowModal('positions')}>My positions</button>
+                            </div>
+                        </div>}
+                    <PriceList coins={coins} click={setName} />
                 </div>
-                {data &&
-                    <div className="demo__chart-container">
-                        <div className="demo__chart"><Line className="demo__chartInside" options={options} data={data} /></div>
-                        <div className="demo__intervals">
-                            <button onClick={() => setRange(1)}>1D</button>
-                            <button onClick={() => setRange(6)}>7D</button>
-                            <button onClick={() => setRange(29)}>30D</button>
-                        </div>
-                        <div className="demo__actions">
-                            <button className="demo__buy" onClick={() => handleShowModal('buy')}>buy</button>
-                            <button className="demo__sell" onClick={() => handleShowModal('sell')}>sell</button>
-                            <button className="demo__positions" onClick={() => handleShowModal('positions')}>My positions</button>
-                        </div>
-                    </div>}
-                <PriceList coins={coins} click={setName} />
             </div>
+
         </>
     );
 };

@@ -1,11 +1,12 @@
+
 .home{
     min-height: 100vh;
     padding: 0 6vw;
     width: 100vw;
     padding-top: 12vh;
-    background-color: rgba(0, 0, 0, 0.74);
     overflow-x: hidden;
 }
+
 
 .home__video{
     position: absolute;
@@ -13,6 +14,30 @@
   top: 0;
   height: 90%;
   z-index: -2;
+}
+
+.home__videoDarken{
+    position: absolute;
+    width: 100%;
+    height: 10vh;
+    bottom: 10vh;
+    background-color: rgba(0, 0, 0, 0.219);
+    z-index: -2;
+    left: 0;
+
+    &::after, &::before{
+        position: absolute;
+        bottom: 0;
+        content: '';
+        width: 100%;
+        background-color: rgba(10, 10, 10, 0.719);
+        height: 33%;
+    }
+
+    &::after{
+        bottom: 33%;
+        background-color: rgba(10, 10, 10, 0.493);
+    }
 }
 
 .home__title{
@@ -191,6 +216,10 @@
         }
     }
 
+    .demo__laptop{
+        display: none;
+    }
+
     .demo__phone{
         width: 100%;
         margin: 1vh 0;
@@ -232,5 +261,302 @@
 
     .copy{
         padding-top: 1vh;
+    }
+}
+
+
+@media screen and (min-width: $mobileL){
+    
+    .home{
+        padding: 12vh 10% 0 10%;
+    }
+    
+    .home__list{
+        margin-top: 4rem;
+        margin-bottom: 6rem;
+    
+        .home__listElement{
+            font-size: 2.4rem;
+    
+            &::before{
+                width: 2.2rem;
+                height: 2.2rem;
+            }
+    
+        }
+    }
+
+    .home__trends{
+        width: 80%;
+    
+        .trends__title{
+            font-size: 2.4rem;
+        }
+    
+        .trends__list{
+    
+            li{
+    
+                img{
+                    height: 4rem;
+                }
+    
+                p{
+                    font-size: 2rem;
+                }
+    
+                .list__price{
+                    span{
+                        font-size: 1.7rem;
+                    }
+                }
+            }
+        }
+    }
+
+    .home__demo{
+    
+        .demo__title{
+            font-size: 4rem; 
+        }
+    
+        .demo__phone{
+            margin: 2vh 0;
+        }
+    
+        .demo__button{
+    
+            button{
+                cursor: pointer;
+              font-size: 1.8rem;
+            }
+        }
+    
+    }
+}
+
+@media screen and (min-width: $mobileXL){
+
+    .home__title{
+        max-width: 600px;
+        margin: 0 auto;
+        margin-top: 10rem;
+
+        .home__titleText{
+            font-size: 6rem;
+            letter-spacing: 2px;
+        }
+    }
+
+    .home__list{
+        max-width: 600px;
+        margin: 3rem auto;
+    }
+
+    .home__trends{
+        width: 70%;
+        margin: 5rem auto;
+    
+        .trends__title{
+            font-size: 3.2rem;
+        }
+    
+        .trends__list{
+    
+            li{
+                padding: 10px 0;
+            }
+        }
+    }
+
+    .home__demo{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        
+        .demo__title{
+            width: 60%;
+        }
+    
+        .demo__phone{
+            width: 80%;
+            margin: 2rem 0;
+        }
+    
+    }
+}
+
+@media screen and (min-width: $desktopS){
+    .home{
+        padding-top: 120px;
+        display: flex;
+        flex-direction: column;
+       align-items: center;
+    }
+
+    .home__title{
+        text-align: center;
+        margin-top: 12rem;
+        max-width: 700px;
+
+        .home__titleText{
+            font-size: 6rem;
+            letter-spacing: 3px;
+        }
+    }
+
+    .home__list{
+        max-width: 680px;
+
+        .home__listElement{
+            font-size: 2rem;
+
+            &::before{
+                transform: translateX(-2.6rem);
+                width: 1.8rem;
+                height: 1.8rem;
+            }
+        }
+    }
+
+    .home__trends{
+        width: 450px;
+    }
+
+    .home__demo{
+        max-width: 700px;
+        margin-top: 80px;
+
+        .demo__title{
+            font-size: 4.5rem;
+            margin-bottom: 60px;
+        }
+    }
+}
+
+@media screen and (min-width: $desktopM){
+
+    .home__video{
+        height: 100%;
+    }
+
+    .home__videoDarken{
+        bottom: 0;
+    }
+  .home__title{
+      margin-top: 28vh;
+      max-width: 740px;
+      .home__titleText{
+          font-size: 6.8rem;
+      }
+  }
+
+  .home__list{
+    max-width: 720px;
+
+    .home__listElement{
+        font-size: 2.2rem;
+
+        &::before{
+            transform: translateX(-2.8rem);
+            width: 2rem;
+            height: 2rem;
+        }
+    }
+  } 
+
+  .home__trends{
+      .trends__list{
+          li{
+              img{
+                  height: 5rem;
+              }
+              p{
+                  font-size: 2.5rem;
+              }
+          }
+      }
+  }
+
+  .home__demo{
+      margin-top: 60px;
+  }
+
+  .home__footer{
+      height: 8 0px;
+        width: 100vw;
+        box-shadow: 0 -1px 2px 0 darken($font-color,40%);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+      p{
+          color: darken($font-color,20%);
+          font-size: 1.6rem;
+
+      }
+  }
+}
+@media screen and (min-width: $desktopL){
+    .home__title{
+        max-width: 1080px;
+
+        .home__titleText{
+            font-size: 8rem;
+        }
+    }
+
+    .home__video{
+        right: 50%;
+        transform: translateX(50%);
+    }
+
+    .home__demo{
+        width: 100%;
+        max-width: none;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+
+        .demo__title{
+            width: 100%;
+            text-align: center;
+        }
+
+        .demo__laptop{
+            display: block;
+            width: 600px;
+        }    
+
+        .demo__phone{
+            display: block;
+            flex-basis: 300px;
+        }    
+
+        .demo__button{
+            display: flex;
+            flex-basis: 100%;
+            cursor: initial;
+            text-decoration: none;
+            button{
+                cursor: pointer;
+                width: 220px;
+                margin: 0 auto;
+            }
+        }
+    }
+
+    .home__list{
+        max-width: 1180px;
+
+        .home__listElement{
+            font-size: 2.4rem;
+
+            &::before{
+                width: 2.1rem;
+                height: 2.1rem;
+                transform: translate(-2.8rem, -.4rem);
+            }
+        }
     }
 }

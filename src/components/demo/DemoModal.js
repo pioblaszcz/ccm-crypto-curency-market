@@ -37,7 +37,7 @@ const DemoModal = ({ type, hide, name, deposit, setDeposit }) => {
         if (pos.value > 0) return (
             <div key={id} className="positions__position">
                 <p className="position__id">{pos.id}</p>
-                <p className="position__value">{pos.value}</p>
+                <p className="position__value">{pos.value.toFixed(3)}</p>
                 <button className="position__close" onClick={() => handleConfirm('sellAll', pos.id, pos.value)}>close</button>
             </div>
         )
@@ -48,7 +48,7 @@ const DemoModal = ({ type, hide, name, deposit, setDeposit }) => {
         modalRef.current.style.top = window.scrollY + 'px';
         document.body.style.overflow = 'hidden';
 
-        return () => document.body.style.overflow = 'visible';
+        return () => document.body.style.overflowY = 'visible';
     }, [modalRef]);
 
     const handleChangeInput = (e) => {
