@@ -1,27 +1,27 @@
 {
   "files": {
-    "main.css": "/ccm-crypto-curency-market/static/css/main.f52de2e5.css",
-    "main.js": "/ccm-crypto-curency-market/static/js/main.bd85651f.js",
-    "static/js/787.d0730385.chunk.js": "/ccm-crypto-curency-market/static/js/787.d0730385.chunk.js",
-    "static/media/bgcmid.mp4": "/ccm-crypto-curency-market/static/media/bgcmid.f23ae266ec0e97fab204.mp4",
-    "static/media/laptop.png": "/ccm-crypto-curency-market/static/media/laptop.4b93e86b7ba71de91229.png",
-    "static/media/phone.png": "/ccm-crypto-curency-market/static/media/phone.ef431c8cf8db26277812.png",
-    "static/media/cardano.svg": "/ccm-crypto-curency-market/static/media/cardano.f7ed7726e214be32686aa91a6a81050f.svg",
-    "static/media/btc.svg": "/ccm-crypto-curency-market/static/media/btc.2b87381f1bad8d4fcb117ac957592db8.svg",
-    "static/media/bought.svg": "/ccm-crypto-curency-market/static/media/bought.14425a259e8d698b1a5bd2de64109e3d.svg",
-    "static/media/sold.svg": "/ccm-crypto-curency-market/static/media/sold.96e959e23e6379d382481f6b766c5453.svg",
-    "static/media/coin.svg": "/ccm-crypto-curency-market/static/media/coin.f9ebfb4401ab572f39c48c5052e468b3.svg",
-    "static/media/find.svg": "/ccm-crypto-curency-market/static/media/find.5845db2f7d828ac210cf105ec14229ae.svg",
-    "static/media/solana.svg": "/ccm-crypto-curency-market/static/media/solana.fa9a0d7d81cbdc9d98e4616581033244.svg",
-    "static/media/ok.svg": "/ccm-crypto-curency-market/static/media/ok.5a50bb32f66f744d3b3f.svg",
-    "index.html": "/ccm-crypto-curency-market/index.html",
-    "static/media/tether.svg": "/ccm-crypto-curency-market/static/media/tether.d13f23ae63a674b4e9a3ffeaba800c34.svg",
-    "main.f52de2e5.css.map": "/ccm-crypto-curency-market/static/css/main.f52de2e5.css.map",
-    "main.bd85651f.js.map": "/ccm-crypto-curency-market/static/js/main.bd85651f.js.map",
-    "787.d0730385.chunk.js.map": "/ccm-crypto-curency-market/static/js/787.d0730385.chunk.js.map"
+    "main.css": "/ccm-cryptocurrency-market/static/css/main.54b17ec7.css",
+    "main.js": "/ccm-cryptocurrency-market/static/js/main.4c8ea29c.js",
+    "static/js/787.d0730385.chunk.js": "/ccm-cryptocurrency-market/static/js/787.d0730385.chunk.js",
+    "static/media/bgcmid.mp4": "/ccm-cryptocurrency-market/static/media/bgcmid.f23ae266ec0e97fab204.mp4",
+    "static/media/laptop.png": "/ccm-cryptocurrency-market/static/media/laptop.4b93e86b7ba71de91229.png",
+    "static/media/phone.png": "/ccm-cryptocurrency-market/static/media/phone.ef431c8cf8db26277812.png",
+    "static/media/cardano.svg": "/ccm-cryptocurrency-market/static/media/cardano.f7ed7726e214be32686aa91a6a81050f.svg",
+    "static/media/btc.svg": "/ccm-cryptocurrency-market/static/media/btc.2b87381f1bad8d4fcb117ac957592db8.svg",
+    "static/media/bought.svg": "/ccm-cryptocurrency-market/static/media/bought.14425a259e8d698b1a5bd2de64109e3d.svg",
+    "static/media/sold.svg": "/ccm-cryptocurrency-market/static/media/sold.96e959e23e6379d382481f6b766c5453.svg",
+    "static/media/coin.svg": "/ccm-cryptocurrency-market/static/media/coin.f9ebfb4401ab572f39c48c5052e468b3.svg",
+    "static/media/find.svg": "/ccm-cryptocurrency-market/static/media/find.5845db2f7d828ac210cf105ec14229ae.svg",
+    "static/media/solana.svg": "/ccm-cryptocurrency-market/static/media/solana.fa9a0d7d81cbdc9d98e4616581033244.svg",
+    "static/media/ok.svg": "/ccm-cryptocurrency-market/static/media/ok.5a50bb32f66f744d3b3f.svg",
+    "index.html": "/ccm-cryptocurrency-market/index.html",
+    "static/media/tether.svg": "/ccm-cryptocurrency-market/static/media/tether.d13f23ae63a674b4e9a3ffeaba800c34.svg",
+    "main.54b17ec7.css.map": "/ccm-cryptocurrency-market/static/css/main.54b17ec7.css.map",
+    "main.4c8ea29c.js.map": "/ccm-cryptocurrency-market/static/js/main.4c8ea29c.js.map",
+    "787.d0730385.chunk.js.map": "/ccm-cryptocurrency-market/static/js/787.d0730385.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.f52de2e5.css",
-    "static/js/main.bd85651f.js"
+    "static/css/main.54b17ec7.css",
+    "static/js/main.4c8ea29c.js"
   ]
 }
